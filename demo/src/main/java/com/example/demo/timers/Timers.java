@@ -12,10 +12,10 @@
 /****************************************************************
  * Revision information:
  *
- *@version	1.0	2019年4月3日	Initial release (ChenJunMa)
+ *@version	1.0	2019年4月15日	Initial release (ChenJunMa)
  *			
  ***************************************************************/
-package com.example.demo.timer;
+package com.example.demo.timers;
 
 import java.util.Date;
 import java.util.Timer;
@@ -25,30 +25,29 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author ChenJunMa
- * @date 2019年4月3日
- * @description
+ * @date 2019年4月15日
+ * @description 
  * 
  */
 @Service
-public class TimersDemo {
-
+public class Timers {
+	
 	private static Timer timer = new Timer();
 
-	public TimersDemo() {
-		TaskDemo task = new TaskDemo();
-		timer.scheduleAtFixedRate(task, 10 * 1000, 10 * 1000);
+	public Timers() {
+		TimersInfo timerInfo = new TimersInfo();
+		timer.scheduleAtFixedRate(timerInfo, 10 * 1000, 10 * 1000);
 		System.err.println("开始计时...");
 	}
-
-	private class TaskDemo extends TimerTask {
+	
+	private class TimersInfo extends TimerTask{
 
 		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			Date date = new Date();
 			System.err.println(date);
-			
 		}
-
+		
 	}
 }
